@@ -1,9 +1,6 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.getUrl = void 0;
-const zod_1 = require("zod");
-const getUrl = (req) => {
-    const formId = zod_1.z.string().parse(req.params.formId);
+import { z } from "zod";
+export const getUrl = (req) => {
+    const formId = z.string().parse(req.params.formId);
     if (!formId) {
         throw {
             status: 400,
@@ -21,5 +18,4 @@ const getUrl = (req) => {
     }
     return url;
 };
-exports.getUrl = getUrl;
 //# sourceMappingURL=getUrl.js.map

@@ -1,5 +1,5 @@
 import { Request } from "express"
-import { getUrl } from "./getUrl"
+import { getUrl } from "./getUrl.js"
 
 export const getDataFromFillOut = async (req: Request) => {
   const apiKey = process.env.API_KEY

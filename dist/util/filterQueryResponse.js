@@ -1,12 +1,9 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.filterQueryResponse = void 0;
-const operators_1 = require("./operators");
-const filterQueryResponse = (queryResponse, filters) => {
+import { operatorMap, comparisonOperatorsHash } from "./operators.js";
+export const filterQueryResponse = (queryResponse, filters) => {
     const parsedFilters = filters.map(filter => {
         return {
             id: filter.id,
-            condition: operators_1.operatorMap[filter.condition],
+            condition: operatorMap[filter.condition],
             value: filter.value
         };
     });
@@ -22,7 +19,7 @@ const filterQueryResponse = (queryResponse, filters) => {
                     currentValue = new Date(currentValue).valueOf();
                     incomingValue = new Date(incomingValue).valueOf();
                 }
-                const condition = operators_1.comparisonOperatorsHash[filter.condition](hasValue.value, filter.value);
+                const condition = comparisonOperatorsHash[filter.condition](hasValue.value, filter.value);
                 if (condition === true) {
                     passedFilters++;
                 }
@@ -30,7 +27,10 @@ const filterQueryResponse = (queryResponse, filters) => {
         }
         return passedFilters === filters.length;
     });
-    return Object.assign(Object.assign({}, queryResponse), { responses: returnValue, totalResponses: returnValue.length });
+    return {
+        ...queryResponse,
+        responses: returnValue,
+        totalResponses: returnValue.length
+    };
 };
-exports.filterQueryResponse = filterQueryResponse;
 //# sourceMappingURL=filterQueryResponse.js.map

@@ -1,7 +1,7 @@
 import dotenv from "dotenv"
 import express from "express"
-import { filterQueryResponse } from "./util/filterQueryResponse"
-import { getDataFromFillOut } from "./util/getDataFromFillOut"
+import { filterQueryResponse } from "./util/filterQueryResponse.js"
+import { getDataFromFillOut } from "./util/getDataFromFillOut.js"
 dotenv.config()
 
 

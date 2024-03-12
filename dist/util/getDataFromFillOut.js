@@ -1,10 +1,7 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.getDataFromFillOut = void 0;
-const getUrl_1 = require("./getUrl");
-const getDataFromFillOut = async (req) => {
+import { getUrl } from "./getUrl.js";
+export const getDataFromFillOut = async (req) => {
     const apiKey = process.env.API_KEY;
-    const response = await fetch((0, getUrl_1.getUrl)(req), {
+    const response = await fetch(getUrl(req), {
         headers: {
             "Authorization": `Bearer ${apiKey}`
         }
@@ -30,5 +27,4 @@ const getDataFromFillOut = async (req) => {
         message: "something went wrong"
     };
 };
-exports.getDataFromFillOut = getDataFromFillOut;
 //# sourceMappingURL=getDataFromFillOut.js.map

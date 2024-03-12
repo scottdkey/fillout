@@ -1,4 +1,4 @@
-import { operatorMap, comparisonOperatorsHash } from "./operators"
+import { operatorMap, comparisonOperatorsHash } from "./operators.js"
 
 export const filterQueryResponse = (queryResponse: QueryResponse, filters: FilterClauseType[]): QueryResponse => {
   const parsedFilters = filters.map(filter => {
