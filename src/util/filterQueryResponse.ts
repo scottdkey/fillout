@@ -25,7 +25,7 @@ export const filterQueryResponse = (queryResponse: QueryResponse, filters: Filte
           currentValue = new Date(currentValue).valueOf()
           incomingValue = new Date(incomingValue).valueOf()
         }
-        const condition = comparisonOperatorsHash[filter.condition](hasValue.value, filter.value)
+        const condition = comparisonOperatorsHash[filter.condition](currentValue, incomingValue)
         if (condition === true) {
           passedFilters++
         }
